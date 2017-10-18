@@ -1,8 +1,4 @@
 import React, {Component} from 'react';
-import key from './map_api_key';
-const MAP_API_KEY = key;
-
-const src=`https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&callback=initMap`;
 
 class GoogleMap extends Component {
   componentDidMount(){
@@ -16,12 +12,8 @@ class GoogleMap extends Component {
   }
   // this.refs.map
   render(){
-    return (
-      <div>
-        <script src={src}></script>
-        <div ref="map" />
-      </div>
-    );
+    return
+      <div ref='map' />
   }
 }
 
