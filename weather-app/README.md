@@ -1,3 +1,11 @@
+# Project Overview
+This project was made while following with tutorial done by Stephen Grider on Udemy.  
+https://www.udemy.com/react-redux/learn/v4/content
+
+This app gets forecast data for a user-entered city and then displays three graphs
+displaying temperature, pressure and humidity.  If an api key is available for google
+maps, the code can be modified to include a map instead of the city name in the table.
+
 # ReduxSimpleStarter
 
 Interested in learning [Redux](https://www.udemy.com/react-redux/)?
