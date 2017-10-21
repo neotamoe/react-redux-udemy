@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchPosts} from '../actions';
+import _ from 'lodash';
 
 class PostsIndex extends Component {
 
@@ -8,15 +9,33 @@ class PostsIndex extends Component {
     this.props.fetchPosts();
   }
 
+  renderPosts(){
+    return _.map(this.props.posts, post => {
+      return (
+        <li className='list-group-item' key={post.id}>
+          {post.title}
+        </li>
+      );
+    });
+  }
+
   render(){
+    console.log(this.props.posts);
     return (
       <div>
-        Posts Index
+        <h3>Posts Index</h3>
+        <ul className='list-group'>
+          {this.renderPosts()}
+        </ul>
       </div>
     );
   }
 }
 
+function mapStateToProps(state){
+  return {posts: state.posts};
+}
+
 // this is same as matchDispatchToProps in separate function as done in previous apps
 // export default connect(null, {fetchPosts: fetchPosts})(PostsIndex); --> below is shortened with ES6 syntax
-export default connect(null, {fetchPosts})(PostsIndex);
+export default connect(mapStateToProps, {fetchPosts})(PostsIndex);
