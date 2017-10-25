@@ -7,15 +7,20 @@ import {Field, reduxForm} from 'redux-form';
 // meta.error property is automatically added to field object from validate function
 class PostsNew extends Component{
   renderField(field){
+    const { meta: {touched, error} } = field;
+    const className = `field-group ${touched && error ? 'has-danger' : ''}`;
+
     return (
-      <div className="form-group">
+      <div className={className}>
         <label>{field.label}</label>
         <input
           className="form-control"
           type="text"
           {...field.input}
         />
-        {field.meta.error}
+        <div className="text-help">
+          {touched ? error : ''}
+        </div>
       </div>
     );
   }
@@ -57,7 +62,7 @@ function validate(values){
   const errors = {};
 
   // validate the inputs from 'values'
-  if(!values.title || values.title.length<3){  // could also break this out into two if statements
+  if(!values.title || values.title.length < 3){  // could also break this out into two if statements
     errors.title = "Enter a title that is at least 3 characters!";
   }
   if(!values.categories){
