@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {createPost} from '../actions';
 
 // redux-form handles the state of our form (values, validation); it doesn't handle talking to
 // the back end or server or putting the form on the screen
@@ -26,8 +29,8 @@ class PostsNew extends Component{
   }
 
   onSubmit(values){
-    // this === component (because of the binding done on line 33)
-    console.log(values);
+    // this === component (because of the binding done in form)
+    this.props.createPost(values);
   }
 
   render() {
@@ -52,6 +55,7 @@ class PostsNew extends Component{
           component={this.renderField}
         />
         <button type="submit" className="btn btn-primary">Submit</button>
+        <Link to="/" className="btn btn-danger"> Cancel </Link>
       </form>
     );
   }
@@ -81,4 +85,6 @@ export default reduxForm({
   // validate: validate,  --> below is shorthand/same since both key and value are same
   validate,
   form: 'PostsNewForm'  // must be unique
-})(PostsNew);
+})(
+  connect(null,{createPost})(PostsNew)
+);
