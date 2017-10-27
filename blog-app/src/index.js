@@ -16,13 +16,13 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 // order the routes in most specific to least specific
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <BrowserRouter >
+    <BrowserRouter>
       <div>
-        <Switch >
+        <Switch>
           <Route path='/posts/new' component={PostsNew} />
           <Route path='/' component={PostsIndex} />
-        </Switch >
+        </Switch>
       </div>
-    </BrowserRouter >
-  </Provider >,
+    </BrowserRouter>
+  </Provider>,
   document.querySelector('.container'));

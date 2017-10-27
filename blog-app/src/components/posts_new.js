@@ -30,7 +30,11 @@ class PostsNew extends Component{
 
   onSubmit(values){
     // this === component (because of the binding done in form)
-    this.props.createPost(values);
+    // when react router renders a component (as it does on index.js-src) it
+    // makes available a bunch of props and helpers in that component that can be used in navigation.  history.push is one of them)
+    this.props.createPost(values, () => {
+      this.props.history.push('/');
+    });
   }
 
   render() {
