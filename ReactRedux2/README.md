@@ -1,4 +1,7 @@
-# ReduxSimpleStarter
+# Book App
+This app was made as part of completing the Modern React with Redux tutorial on Udemy by Stephen Grider.  https://www.udemy.com/react-redux/learn/v4/content. This simple app introduces Redux and contains a list of books.  The user selects a book from a displayed list to be displayed on the main part of the screen.  Redux concepts introduced include reducers, containers, actions, and action creators.
+
+### ReduxSimpleStarter
 
 Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 
